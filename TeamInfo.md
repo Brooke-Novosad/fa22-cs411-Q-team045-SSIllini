@@ -10,7 +10,7 @@
 | Captain     | lklecka2@illinois.edu  |
 | Member1     |     Michael Harris     |
 | Member1     |   mnh3@illinois.edu    |
-| Member2     |     Brooke Novasod     |
+| Member2     |     Brooke Novosad     |
 | Member2     | novosad3@illinois.edu  |
 | Member3     |        Rainy Yan       |
 | Member3     | yuzheng9@illinois.edu  |

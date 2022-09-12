@@ -5,7 +5,7 @@ Welcome aboard to the S.S. Illini! Our crew is dedicated to discovering how to h
 ## Crew
 
 * Captain Landon Klecka - Renowned captain of the past Alteria Mission. Took 4 year sabbatical leave to open up a donut cafe.
-* Doctor Brooke Novasod - Not just a medical doctor, Ph.D of Computer Science, Ph.D of Physics, and Ph.D of Law.
+* Doctor Brooke Novosad - Not just a medical doctor, Ph.D of Computer Science, Ph.D of Physics, and Ph.D of Law.
 * Navigator Michael Harris - Legend has it he coached a researcher to navigate their spacecraft to safety after their pilot lost consciousness at the helm.
 * Comms Officer Rainy Yan - She's invented a special type of cryptography that's resistant to the most super of computers.
 
