@@ -1,10 +1,19 @@
 # Project Proposal
 
 ## Describe what data is stored in the database. (Where is the data from, what attributes and information would be stored?)
+Data stored in the database include:
+- a students table to store student information (student name, student ID, etc.)
+- a credential table to store log in data (usernames and passwords) as well as 
+- a schedules table to store students' class schedules
+- an inventory table to store students' rewards
+Most of the data stored will come from the users, as it is all very individualized.
 
 ## What are the basic functions of your web application? (What can users of this website do? Which simple and complex features are there?)
+Basic functions of the web application include user account creation and log in, entering their schedules, checking into their classes, and viewing their inventories.
 
 ## What would be a good creative component (function) that can improve the functionality of your application? (What is something cool that you want to include? How are you planning to achieve it?)
+
+A good creative component could be allowing students to level up items in their inventory after they've collected a certain number of duplicated items. This improves functionality because it increases variety and possibily provides more incentive for the user to attend more classes. 
 
 ## Project Title
 
