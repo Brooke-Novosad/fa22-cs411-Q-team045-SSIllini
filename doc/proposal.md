@@ -6,6 +6,7 @@ Data stored in the database include:
 - a credential table to store log in data (usernames and passwords) as well as 
 - a schedules table to store students' class schedules
 - an inventory table to store students' rewards
+
 Most of the data stored will come from the users, as it is all very individualized.
 
 ## What are the basic functions of your web application? (What can users of this website do? Which simple and complex features are there?)
