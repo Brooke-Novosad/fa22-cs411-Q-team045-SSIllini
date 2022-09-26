@@ -16,9 +16,12 @@ Basic functions of the web application include user account creation and log in,
 
 A good creative component could be allowing students to level up items in their inventory after they've collected a certain number of duplicated items. This improves functionality because it increases variety and possibily provides more incentive for the user to attend more classes. 
 
-## Project Title
+## Project Title: Greener Pastures
 
 ## Project Summary:  It should be a 1-2 paragraph description of what your project is.
+
+Greener Pastures is a web-based habit tracker that serves as an organized checklist for building a person's ideal schedule. For a student, this looks like attending classes, set aside study time, and time for other hobbies. It also can incorparate a regular sleep schedule and exercise routinue. The main purpose of the application is to build organized task-orientated habits.
+As a way to track progress, users will be rewarded with a pet/creature with randomly assigned color scheme. The more a user sticks to their schedule the more rare their creatures will be, signified by more exotic color schemes.
 
 ## Description of an application of your choice. State as clearly as possible what you want to do. What problem do you want to solve, etc.?
 This application serves as a habit tracker. It will help students form good habits such as coming to class and showing up on time. The students can track their attendance and when they log into their classes each day. This is also 1 website to log into classes so students don’t have to juggle using multiple platforms for all of their classes. This application will allow students to log in and click a button telling them to check into whichever class is at that time. Then there will be a popup telling them if they are late or not. If they are not late they will get an item to put in their inventory as a reward.
@@ -35,7 +38,23 @@ A lot of the data for this project will be provided by the user. The app will ha
 The user would log into the application and there would be a button on the screen to log into a class based on what time it is and which class it is. When they click the button, it will tell the student if they were late to this class or not. There is also going to be a page where a student can upload their class schedule. They will just enter in the class name, the time, the location, and the professor. Another function our website will offer is an option to delete a class from a student's schedule. If a student drops a class, they can go into their log in on the website and delete that class from their schedule. There will also be an option to update details of the class such as location or time if that class ends up moving to another classroom or doesn’t meet that week. The last function our website would offer is a page with the students inventory. This page will hold the items the student has earned from being on time and offer a search function.
 
 ## A low fidelity UI mockup: What do you imagine your final application’s interface might look like? A PowerPoint slide or a pencil sketch on a piece of paper works!
+![UI Mockup](ui_mockup.jpg)
 
 ## Project work distribution: Who would be responsible for each of the tasks or subtasks?
-
-## List of the person responsible for which exact functionalities in section f. Explain how backend systems will be distributed across members. Be as specific as possible as this could be part of the final peer evaluation metrics.
+Brooke: CRUD schedule implementation
+* Scheduling interface on web app page
+* Creating a schedule
+* Querying specific classes
+Rainy: Check-In database triggers and functionality
+* Check-In interface
+* Database that stores user history
+* Querying user progress (successes, streaks, etc)
+Michael: Login system and account interaction
+* Login interface
+* User and password database
+* Linkage between schedule, history, and inventory databases
+Landon: Inventory management, item procuring and generation
+* Inventory interface
+* Reward logic
+* Item generation
+* Item merging
