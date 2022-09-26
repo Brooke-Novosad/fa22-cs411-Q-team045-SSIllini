@@ -45,14 +45,17 @@ Brooke: CRUD schedule implementation
 * Scheduling interface on web app page
 * Creating a schedule
 * Querying specific classes
+
 Rainy: Check-In database triggers and functionality
 * Check-In interface
 * Database that stores user history
 * Querying user progress (successes, streaks, etc)
+
 Michael: Login system and account interaction
 * Login interface
 * User and password database
 * Linkage between schedule, history, and inventory databases
+
 Landon: Inventory management, item procuring and generation
 * Inventory interface
 * Reward logic
