@@ -1,7 +1,7 @@
 # ER Diagram
-![ER Diagram](ERDiagram.PNG)
+![ER Diagram](ER_Diagram.PNG)
 ## Assumptions about the diagram
-A student can have many things in their inventory, but there can only be 1 inventory per student. If a student has not collected any farm animals, they will not have an inventory. (one to many)
+A student can have many things in their inventory and there can be many inventory items associated with each student.  (many to many)
 
 A student can have many history entries of habits in their history, but each history entry can only belong to 1 student. (one to many)
 
