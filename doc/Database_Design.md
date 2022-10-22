@@ -72,5 +72,28 @@ GROUP BY Item HAVING EXISTS(SELECT Item FROM Inventory WHERE Student=currentStud
 ORDER BY rarity DESC
 ```
 
+### Indexing 
+
+#### Indexing Second Query
+
+#### Initial Explain Analyze:
+
+![Indexing query21](./images/Indexing21.png)
+
+
+When we first ran the Explain Analyze, we could see the leaf level was an index scan of the Inventory table and not a full table scan. So, when we tried adding an index to the Student in the Inventory table we did not see any improvement. 
+
+![Indexing query22](./images/Indexing22.png)
+
+The same holds true for adding an index to Items, we do not see improvement (cost remains 101.50) 
+
+![Indexing query23](./images/Indexing23.png)
+
+Finally we attempted adding an Index that only uses SOME of the Student key as we had tried indexing all the full keys. These indexes did not improve the cost because Student is a primary key and must be searched to tell apart different entries that have the same Item.
+
+![Indexing query24](./images/Indexing24.png)
+
+Overall we were not able to improve the cost of this query with Indexing. The main reason we were not able to improve is because this query only searches the Inventory table. The Inventory table only has 2 keys which are both primary keys. This means both these entries are needed in full and indexing does not improve cost.
+
 
 
