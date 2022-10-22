@@ -4,6 +4,10 @@
 
 We made slight changes to our database design since the last stage, namely deciding to use the student login as primary key instead of student name.
 
+### All Tables
+
+![Show Tables](./images/ShowTables.png)
+
 ### Students table
 
 ![Students table](./images/students.png)
