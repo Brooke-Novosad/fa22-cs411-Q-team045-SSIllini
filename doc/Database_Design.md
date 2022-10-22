@@ -36,3 +36,15 @@ CREATE TABLE History(Time DATETIME, Student VARCHAR(255), Habit INT, PRIMARY KEY
 REFERENCES Classes_Habits(Habit));
 
 ![History count](./images/HistoryCount.png)
+
+### Queries
+
+DECLARE currentStudent AS VARCHAR(255)
+
+SELECT DISTINCT Habit, Location, COUNT(y.Time)
+FROM Habits h JOIN History y ON y.Habit=h.Habit
+WHERE h.Student=currentStudent
+GROUP BY Habit
+ORDER BY h.Time
+
+
