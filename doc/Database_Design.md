@@ -45,7 +45,7 @@ REFERENCES Classes_Habits(Habit));
 
 ![History count](./images/HistoryCount.png)
 
-### Queries
+## Queries
 
 This variable is to designate the currently logged-in student
 
@@ -72,9 +72,29 @@ GROUP BY Item HAVING EXISTS(SELECT Item FROM Inventory WHERE Student=currentStud
 ORDER BY rarity DESC
 ```
 
-### Indexing 
+## Indexing 
 
-#### Indexing Second Query
+### Indexing First Query
+
+#### Initial Explain Analyze:
+
+![Indexing query11](./images/Indexing11.png)
+
+When running explain analyze with default indexing, we can see that the lowest levels were look ups on the Student and History tables, where the lookup on History had a rather significant cost. Thus, we decided to add an index to the Habit field in History to see if it would offer improvements:
+![Indexing query12](./images/Indexing12.png)
+However, it seems that creating the index on the Habit column actually slowed down the query. Furthermore, we discovered that we were unable to remove the index as it is now needed in a foreign key constraint.
+
+We next attempted to index the Student field in the Habit table:
+![Indexing query13](./images/Indexing13.png)
+This did not impact improvement, which was expected since Student is already part of the primary key for Habit.
+
+Finally, we tried to index only ```currentStudent``` in the Habit table:
+![Indexing query14](./images/Indexing14.png)
+This once again did not impact improvement, most likely for the same reason as for the index attempt above.
+
+Since none of these three indexing methods we tried improved performance for this first query, and in fact slowed down the search speed, we have decided to not use any indexes.
+
+### Indexing Second Query
 
 #### Initial Explain Analyze:
 
@@ -93,7 +113,7 @@ Finally we attempted adding an Index that only uses SOME of the Student key as w
 
 ![Indexing query24](./images/Indexing24.png)
 
-Overall we were not able to improve the cost of this query with Indexing. The main reason we were not able to improve is because this query only searches the Inventory table. The Inventory table only has 2 keys which are both primary keys. This means both these entries are needed in full and indexing does not improve cost.
+Overall we were not able to improve the cost of this query with indexing. The main reason we were not able to improve is because this query only searches the Inventory table, which only has 2 keys and are both primary keys. This means both these fields are already index and thus setting any more indexes will not improve the performance.
 
 
 
