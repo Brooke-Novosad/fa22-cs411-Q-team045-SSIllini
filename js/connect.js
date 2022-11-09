@@ -17,6 +17,25 @@ const mysql = require('mysql');
 
 // let connection = mysql.createConnection(config);
 
+//https://www.itsolutionstuff.com/post/node-js-express-form-submission-exampleexample.html
+//some info on forms connecting to node.js
+
+//create login
+//https://codeshack.io/basic-login-system-nodejs-express-mysql/
+
+//we also might need to restructure the files
+//https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/multi-page-html-sites
+
+//express seems to be the easiest way to connect a button to node js
+
+//https://stackoverflow.com/questions/51820984/linking-html-button-to-node-js-post
+
+//https://www.w3docs.com/snippets/nodejs/how-to-redirect-a-web-page-with-node-js.html
+//more redirections
+
+
+
+
 // Database Connection for Development
 
 let connection = mysql.createConnection({
