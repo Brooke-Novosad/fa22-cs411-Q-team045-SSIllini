@@ -42,7 +42,8 @@ let connection = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
   database: "habit_tracker",
-  password: "hello"
+  password: "hello",
+  multipleStatements: true
 });
 
 connection.connect(function(err) {

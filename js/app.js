@@ -24,9 +24,12 @@ app.route('/create')
 
   var login = req.body.login
   var habit = req.body.habit
-  var time = new Date()
+  var time = new Date().toISOString().slice(0, 19).replace('T', ' ')
 
-  var sql = `INSERT INTO Classes_Habits (Habit, Student, Time) VALUES(${habit}, \"${login}\", ${time})`
+  var sql = `INSERT INTO History (Habit, Student, Time) VALUES(${habit}, \"${login}\", \'${time}\'); 
+            INSERT IGNORE INTO Classes_Habits (Habit, Student, Time) VALUES(${habit}, \"${login}\", \'${time}\');
+            SELECT Item into @new_item FROM Inventory ORDER BY RAND() LIMIT 1;
+            INSERT IGNORE INTO Inventory(Item, Student) VALUES(@new_item, \"${login}\")`
 
   console.log(login, habit, sql)
 
@@ -35,6 +38,7 @@ app.route('/create')
       if (error) throw error;
       res.send(results);
     }
+
   );
 });
 
@@ -42,7 +46,7 @@ app.route('/search')
   .post(function(req, res, next) {
 
     var login = req.body.login
-    var sql = `SELECT * FROM Classes_Habits WHERE Student = \"${login}\"`
+    var sql = `SELECT * FROM Inventory WHERE Student = \"${login}\"`
 
     connection.query(
       sql, function(error, results, fields) {
@@ -78,7 +82,7 @@ app.route('/search')
     var login = req.body.login
     var item = req.body.item
 
-    var sql = `DELETE FROM Inventory WHERE Student = \"${login}\" AND Item LIKE \"${item}\"`
+    var sql = `DELETE FROM Inventory WHERE Student = \"${login}\" AND Item LIKE \"%${item}%\"`
 
     console.log(login, item, sql)
 
@@ -95,11 +99,9 @@ app.route('/search')
 
     var login = req.body.login
 
-    var sql = `SELECT DISTINCT h.Student, h.Habit, h.Location
-                FROM Classes_Habits h JOIN History y ON y.Habit=h.Habit
-                WHERE h.Student=\"${login}\"
-                GROUP BY h.Habit
-                ORDER BY h.Time`
+    var sql = `SELECT y.Habit, COUNT(y.Time) 
+                FROM History y JOIN Classes_Habits h ON y.Student = h.Student AND y.Habit = h.Habit 
+                WHERE h.Student = \'${login}\' GROUP BY y.Habit`
 
     console.log(login, sql)
 
@@ -116,10 +118,9 @@ app.route('/search')
 
     var login = req.body.login
 
-    var sql = `SELECT Item, COUNT(Student) AS rarity
-                FROM Inventory
-                GROUP BY Item HAVING EXISTS(SELECT Item FROM Inventory WHERE Student=\"${login}\")
-                ORDER BY rarity DESC`
+    var sql = `SELECT A.Item, COUNT(Student) / (SELECT COUNT(*) FROM Students) AS rarity
+                FROM Inventory i JOIN ( SELECT DISTINCT Item FROM Inventory WHERE Student = \'${login}\' ) AS A 
+                ON i.Item = A.item GROUP BY A.Item`
 
     console.log(login, sql)
 
