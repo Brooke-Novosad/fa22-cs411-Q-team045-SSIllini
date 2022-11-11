@@ -17,7 +17,14 @@
     <div class="operations">
 
         <div class="op" id="create">
-            <h4>Create</h4>
+            <h4>Create (Check into habit)</h4>
+            <form action = "create" method="POST"> 
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" placeholder="Login" />
+                <input type="text" id="habit" name="habit" placeholder="Habit" />
+                <br />
+                <input type="submit" value="submit" />
+            </form>
         </div>
 
         <div class="op" id="search">
@@ -25,18 +32,21 @@
             <form action = "search" method="POST"> 
                 <label for="login">Login:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
+                <br />
                 <input type="submit" value="submit" />
             </form>
             <p id="search_result"></p>
         </div>
 
         <div class="op" id="update">
-            <h4>Update (Add Habit)</h4>
+            <h4>Update (Change preferred name)</h4>
             <form action = "update" method="POST"> 
                 <label for="login">Student:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
-                <label for="habit">Habit:</label>
-                <input type="text" id="habit" name="habit" placeholder="Habit" />
+                <br />
+                <label for="habit">Name:</label>
+                <input type="text" id="habit" name="name" placeholder="Name" />
+                <br />
                 <input type="submit" value="submit" />
             </form>
             <p id="search_result"></p>
@@ -47,8 +57,10 @@
             <form action = "delete" method="POST"> 
                 <label for="login">Student:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
+                <br />
                 <label for="item">Item:</label>
                 <input type="text" id="item" name="item" placeholder="Item" />
+                <br />
                 <input type="submit" value="submit" />
             </form>
         </div>
@@ -58,11 +70,15 @@
             <form action = "schedule" method="POST"> 
                 <label for="login">Times Habit Followed:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
+                <br />
                 <input type="submit" value="submit" />
             </form>
+            <br />
+            <br />
             <form action = "rarity" method="POST"> 
                 <label for="login">Item Rarity:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
+                <br />
                 <input type="submit" value="submit" />
             </form>
         </div>

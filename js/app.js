@@ -10,12 +10,32 @@ const connection = require('./connect');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, '../')))
 
 // parse application/json
 app.use(bodyParser.json())
 
 app.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../', '/index.html'));
+});
+
+app.route('/create')
+.post(function(req, res, next) {
+
+  var login = req.body.login
+  var habit = req.body.habit
+  var time = new Date()
+
+  var sql = `INSERT INTO Classes_Habits (Habit, Student, Time) VALUES(${habit}, \"${login}\", ${time})`
+
+  console.log(login, habit, sql)
+
+  connection.query(
+    sql, function(error, results, fields) {
+      if (error) throw error;
+      res.send(results);
+    }
+  );
 });
 
 app.route('/search')
@@ -36,12 +56,13 @@ app.route('/search')
   .post(function(req, res, next) {
 
     var login = req.body.login
-    var habit = req.body.habit
-    var time = new Date()
+    var name = req.body.name
 
-    var sql = `INSERT INTO Classes_Habits (Habit, Student, Time) VALUES(${habit}, \"${login}\", ${time})`
+    var sql = `UPDATE Students
+                SET Name = \"${name}\"
+                WHERE Login = \"${login}\";`
 
-    console.log(login, habit, sql)
+    console.log(login, name, sql)
 
     connection.query(
       sql, function(error, results, fields) {

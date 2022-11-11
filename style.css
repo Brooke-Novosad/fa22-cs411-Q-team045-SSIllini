@@ -17,3 +17,13 @@ body {
     width: 20%;
     margin: .5%;
 }
+
+form {
+    display: inline-block;
+    
+}
+
+input {
+    margin-top: 5%;
+    display: inline-block;
+}
