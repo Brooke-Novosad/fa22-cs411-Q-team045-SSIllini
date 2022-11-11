@@ -42,7 +42,7 @@ app.route('/search')
   .post(function(req, res, next) {
 
     var login = req.body.login
-    var sql = `SELECT * FROM Students WHERE Login = \"${login}\"`
+    var sql = `SELECT * FROM Classes_Habits WHERE Student = \"${login}\"`
 
     connection.query(
       sql, function(error, results, fields) {
