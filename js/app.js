@@ -26,10 +26,32 @@ app.route('/create')
   var habit = req.body.habit
   var time = new Date().toISOString().slice(0, 19).replace('T', ' ')
 
-  var sql = `INSERT INTO History (Habit, Student, Time) VALUES(${habit}, \"${login}\", \'${time}\'); 
+  var sql = `INSERT INTO History (Habit, Student, Time) VALUES(${habit}, \"${login}\", \'${time}\')`
+
+  console.log(login, habit, sql)
+
+  connection.query(
+    sql, function(error, results, fields) {
+      if (error) throw error;
+      res.send(results);
+    }
+
+  );
+});
+
+app.route('/trigger')
+.post(function(req, res, next) {
+
+  var login = req.body.login
+  var habit = req.body.habit
+  var time = new Date().toISOString().slice(0, 19).replace('T', ' ')
+
+  var sql = `CREATE TRIGGER insertTrigger AFTER INSERT ON History
+            BEGIN
             INSERT IGNORE INTO Classes_Habits (Habit, Student, Time) VALUES(${habit}, \"${login}\", \'${time}\');
             SELECT Item into @new_item FROM Inventory ORDER BY RAND() LIMIT 1;
-            INSERT IGNORE INTO Inventory(Item, Student) VALUES(@new_item, \"${login}\")`
+            INSERT IGNORE INTO Inventory(Item, Student) VALUES(@new_item, \"${login}\")
+            END`
 
   console.log(login, habit, sql)
 
