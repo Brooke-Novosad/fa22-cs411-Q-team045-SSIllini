@@ -154,6 +154,21 @@ app.route('/search')
     );
   });
 
+  app.route('/procedure')
+  .post(function(req, res, next) {
+
+    var login = req.body.login
+
+    var sql = `CALL `
+
+    connection.query(
+      sql, function(error, results, fields) {
+        if (error) throw error;
+        res.send(results);
+      }
+    );
+  });
+
 app.get('/status', (req, res) => res.send('Working!'));
 
 // Port 8080 for Google App Engine
