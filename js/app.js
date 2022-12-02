@@ -31,7 +31,10 @@ app.route('/create')
   connection.query(
     sql, function(error, results, fields) {
       if (error) throw error;
-      res.send(results);
+      
+      var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+      <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Succesfully checked into habit <span style="color:pink">${habit}</span> for <span style="color:pink">${login}</span> at <span style="color:pink">${time}</span></h1></body></html>`
+      res.send(html);
     }
 
   );
@@ -46,7 +49,15 @@ app.route('/search')
     connection.query(
       sql, function(error, results, fields) {
         if (error) throw error;
-        res.send(results);
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Inventory of ${login}</h1></body></html>`
+        var str = `<table> <tr><th>Items Owned</th></tr>`
+        var row = ""
+        for (let i = 0; i < results.length; i++) {
+            row = row + '<tr><td>' + results[i].Item + '</td></tr>'
+        }
+        str = str + row + '</table>'
+        res.send(html + str);
       }
     );
   });
@@ -61,12 +72,12 @@ app.route('/search')
                 SET Name = \"${name}\"
                 WHERE Login = \"${login}\";`
 
-    console.log(login, name, sql)
-
     connection.query(
       sql, function(error, results, fields) {
         if (error) throw error;
-        res.send(results);
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+      <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Succesfully changed name of <span style="color:pink">${login}</span> to <span style="color:pink">${name}</span>.</h1></body></html>`
+        res.send(html);
       }
     );
   });
@@ -84,7 +95,9 @@ app.route('/search')
     connection.query(
       sql, function(error, results, fields) {
         if (error) throw error;
-        res.send(results);
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+      <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Succesfully deleted item <span style="color:pink">${item}</span> from <span style="color:pink">${login}</span>'s inventory</h1></body></html>`
+        res.send(html);
       }
     );
   });
@@ -94,7 +107,7 @@ app.route('/search')
 
     var login = req.body.login
 
-    var sql = `SELECT y.Habit, COUNT(y.Time) 
+    var sql = `SELECT y.Habit, COUNT(y.Time) as times
                 FROM History y JOIN Classes_Habits h ON y.Student = h.Student AND y.Habit = h.Habit 
                 WHERE h.Student = \'${login}\' GROUP BY y.Habit`
 
@@ -103,7 +116,15 @@ app.route('/search')
     connection.query(
       sql, function(error, results, fields) {
         if (error) throw error;
-        res.send(results);
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Times ${login} has followed their habits</h1></body></html>`
+        var str = `<table> <tr><th>Habit</th><th>Times Followed</th></tr>`
+        var row = ""
+        for (let i = 0; i < results.length; i++) {
+            row = row + '<tr><td>' + results[i].Habit + '</td><td>' + results[i].times + '</td></tr>'
+        }
+        str = str + row + '</table>'
+        res.send(html + str);
       }
     );
   });
@@ -117,12 +138,18 @@ app.route('/search')
                 FROM Inventory i JOIN ( SELECT DISTINCT Item FROM Inventory WHERE Student = \'${login}\' ) AS A 
                 ON i.Item = A.item GROUP BY A.Item`
 
-    console.log(login, sql)
-
     connection.query(
       sql, function(error, results, fields) {
         if (error) throw error;
-        res.send(results);
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Rarity of ${login}'s items</h1></body></html>`
+        var str = `<table> <tr><th>Item</th><th>Rarity</th></tr>`
+        var row = ""
+        for (let i = 0; i < results.length; i++) {
+            row = row + '<tr><td>' + results[i].Item + '</td><td>' + results[i].rarity + '</td></tr>'
+        }
+        str = str + row + '</table>'
+        res.send(html + str);
       }
     );
   });

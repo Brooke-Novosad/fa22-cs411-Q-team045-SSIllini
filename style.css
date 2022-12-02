@@ -27,3 +27,30 @@ input {
     margin-top: 5%;
     display: inline-block;
 }
+
+table {
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width:50%; 
+    margin-left:25%; 
+    margin-right:25%;
+}
+
+th {
+    font-weight: bolder;
+    font-size: x-large;
+    padding: 3%;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {background-color: pink;}
+
+td {
+    padding: 2%;
+}
