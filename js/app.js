@@ -157,14 +157,24 @@ app.route('/search')
   app.route('/procedure')
   .post(function(req, res, next) {
 
-    var login = req.body.login
+    var habit = req.body.habit
 
-    var sql = `CALL `
+    var sql = `CALL sp(${habit})`
+
+    console.log(sql)
 
     connection.query(
       sql, function(error, results, fields) {
         if (error) throw error;
-        res.send(results);
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Students following habit <span style="color:pink">${habit}</span></h1></body></html>`
+        var str = `<table> <tr><th>Student</th><th>Item</th></tr>`
+        var row = ""
+        for (let i = 0; i < results[0].length; i++) {
+            row = row + '<tr><td>' + results[0][i].student + '</td><td>' + results[0][i].item + '</td></tr>'
+        }
+        str = str + row + '</table>'
+        res.send(html + str);
       }
     );
   });
