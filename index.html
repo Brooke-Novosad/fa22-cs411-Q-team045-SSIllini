@@ -11,13 +11,13 @@
 
 <body>
   
-    <h1>Final Demo</h1>
+    <h1>Habit Tracker</h1>
     <h3>SS-Illini</h3>
 
     <div class="operations">
 
         <div class="op" id="create">
-            <h4>Create (Check into habit; uses trigger)</h4>
+            <h4>Check into Habit</h4>
             <form action = "create" method="POST"> 
                 <label for="login">Login:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
@@ -30,7 +30,7 @@
         </div>
 
         <div class="op" id="search">
-            <h4>Search (For inventory items) </h4>
+            <h4>Show Inventory Items</h4>
             <form action = "search" method="POST"> 
                 <label for="login">Login:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
@@ -41,7 +41,7 @@
         </div>
 
         <div class="op" id="update">
-            <h4>Update (Change preferred name)</h4>
+            <h4>Change Preferred Name</h4>
             <form action = "update" method="POST"> 
                 <label for="login">Student:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
@@ -51,11 +51,19 @@
                 <br />
                 <input type="submit" value="submit" />
             </form>
-            <p id="search_result"></p>
+            <br />
+            <br />
+            <h4>Student Lookup</h4>
+            <form action = "lookup" method="POST"> 
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" placeholder="Login" />
+                <br />
+                <input type="submit" value="submit" />
+            </form>
         </div>
 
         <div class="op" id="delete">
-            <h4>Delete (Get rid of inventory item)</h4>
+            <h4>Remove Inventory Item</h4>
             <form action = "delete" method="POST"> 
                 <label for="login">Student:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
@@ -68,7 +76,7 @@
         </div>
 
         <div class="op" id="advqs">
-            <h4>Adv Qs</h4>
+            <h4>Advanced Queries</h4>
             <form action = "schedule" method="POST"> 
                 <label for="login">Times Habit Followed:</label>
                 <input type="text" id="login" name="login" placeholder="Login" />
@@ -79,6 +87,7 @@
             <br />
             <form action = "rarity" method="POST"> 
                 <label for="login">Item Rarity:</label>
+                <br />
                 <input type="text" id="login" name="login" placeholder="Login" />
                 <br />
                 <input type="submit" value="submit" />
@@ -86,7 +95,8 @@
             <br />
             <br />
             <form action = "procedure" method="POST"> 
-                <label for="login">Stored Procedure:</label>
+                <label for="login">Find Everyone Who Follows Habit:</label>
+                <br />
                 <input type="text" id="habit" name="habit" placeholder="Habit" />
                 <br />
                 <input type="submit" value="submit" />

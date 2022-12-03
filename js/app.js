@@ -62,6 +62,29 @@ app.route('/search')
     );
   });
 
+  app.route('/lookup')
+  .post(function(req, res, next) {
+
+    var login = req.body.login
+    var sql = `SELECT * FROM Students WHERE Login = \"${login}\"`
+
+    connection.query(
+      sql, function(error, results, fields) {
+        if (error) throw error;
+        console.log(sql)
+        var html = `<!DOCTYPE html><html><head><link href="../style.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'></head><body><h1>Student Information</h1></body></html>`
+        var str = `<table> <tr><th>Student Login</th><th>Student Name</th></tr>`
+        var row = ""
+        for (let i = 0; i < results.length; i++) {
+            row = row + '<tr><td>' + results[i].Login + '</td><td>' + results[i].Name + '</td></tr>'
+        }
+        str = str + row + '</table>'
+        res.send(html + str);
+      }
+    );
+  });
+
   app.route('/update')
   .post(function(req, res, next) {
 

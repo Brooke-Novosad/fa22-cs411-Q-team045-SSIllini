@@ -23,9 +23,18 @@ form {
     
 }
 
+label {
+    font-size: 80%;
+}
+
 input {
     margin-top: 5%;
     display: inline-block;
+    font-size: 60%;
+}
+
+h4 {
+    font-size: 90%;
 }
 
 table {
