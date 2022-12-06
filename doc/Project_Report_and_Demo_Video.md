@@ -48,3 +48,11 @@ Demo Video: https://youtu.be/9l9fVf7hMmA
 
 10. Describe the final division of labor and how well you managed teamwork. 
 
+    Rainy - 
+
+    Brooke - Helped with project description, created ER Diagram, assisted Rainy with the coding for the midterm demo and helped with errors, wrote stored procedure, presented at midterm and final demo, helped with project report and made demo video.
+
+    Landon - 
+
+    Michael - 
+
