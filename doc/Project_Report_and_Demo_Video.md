@@ -30,7 +30,7 @@ Demo Video: https://youtu.be/9l9fVf7hMmA
 
 7. Each team member should describe one technical challenge that the team encountered.  This should be sufficiently detailed such that another future team could use this as helpful advice if they were to start a similar project or where to maintain your project.
 
-    -Rainy: 
+    -Rainy: Connecting to GCP with Node.js was quite challenging since none of us had experience with either GCP or Node.js prior to this assignment. It took several GCP help articles, both official and unofficial, before we were able to set up the connection and test our code locally, ranging from articles that talked about how to create and download service account keys, articles that talked about how to use the cloud sql proxy, and articles that talked about how to connect to the actual database with code using Node.js.
 
     -Brooke: During the midterm demo, we did not have our trigger working yet so we had a query to insert the habit into the students history, a query to insert the habit into the Classes_habits table, and a query to add a random animal to the students inventory. We were having trouble doing 3 queries at once on node.js. We found out that we could have 1 giant query separated by semicolons to run all the queries at the same time. This was more of a syntax thing we learned since there are many different ways to do this but this is the way that worked best for us.
 
