@@ -36,7 +36,7 @@ Demo Video: https://youtu.be/9l9fVf7hMmA
 
     -Landon: testing queries and functionalities of the database was difficult to do in the terminal. To make this more manageable I made sure to set delimiters properly and have a copy of the code I was testing in some sort of text editor. Depending on the error in the shell I would go back to change the code and re-insert it into the terminal along with the commands to test the code.
     
-    -Michael: 
+    -Michael: I struggled with the syntax of SQL when implementing it through the GCP terminal.
 
 8. Are there other things that changed comparing the final application with the original proposal?
 
@@ -48,11 +48,11 @@ Demo Video: https://youtu.be/9l9fVf7hMmA
 
 10. Describe the final division of labor and how well you managed teamwork. 
 
-    Rainy - 
+    Rainy - Helped with project description, converted ER diagram to relational schema, modify and uploaded data to GCP and implemented tables, wrote the majority of frontend code, fixed advanced queries, wrote functionality of trigger, presented at midterm and final demo, participated in making the demo video.
 
-    Brooke - Helped with project description, created ER Diagram, assisted Rainy with the coding for the midterm demo and helped with errors, wrote stored procedure, presented at midterm and final demo, helped with project report and made demo video.
+    Brooke - Helped with project description, created ER Diagram, obtained data for database, assisted Rainy with the coding for the midterm demo and helped with errors, wrote stored procedure, presented at midterm and final demo, helped with project report and made demo video.
 
-    Landon - 
+    Landon - Came up with project idea, helped with project description, wrote advanced queries, implemented stored procedure into database
 
-    Michael - 
+    Michael - Helped with project description, carried out indexing tests for tables, completed trigger and implemented into database
 
