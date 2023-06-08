@@ -1,6 +1,6 @@
 # Q-team045-SSIllini
 
-## Basic Information
+## Basic Information 
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
